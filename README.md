@@ -66,6 +66,15 @@ The baseline VisFemale table identifies 2 candidate rows (S11 and S22). Upon app
 - .plot(kind='bar', ax=axes[i]): Renders distinct bar charts onto designated axis objects.
 - .idxmax(): Programmatically queries the maximum category index label per categorical summary series.
 
+### C. Category-Average Visualization & Group Analysis
+Compute the comprehensive four-subject overall average (Math, Electronics, GEAS, and Communication) for all records. Using group-by aggregation, compute the sample mean score across the categorical dimensions Track, Gender, and Hometown. The comparisons are visualized side-by-side on a unified multi-panel figure, followed by an automated determination of the top-performing categories.
+
+**Logic:**
+- board[['Math', ...]].mean(axis=1): Computes an unbiased horizontal aggregate score per individual across all 4 exam components.
+- .groupby('<Feature>')['Average'].mean(): Splits the dataset into distinct categorical buckets and aggregates their respective overall mean performances
+- .plt.subplots(1, 3, figsize=(20, 5)): Instantiates a structured $1 \times 3$ grid figure canvas for synchronized comparative review.
+- .plot(kind='bar', ax=axes[i]): Renders distinct bar charts onto designated axis objects.
+- .idxmax(): Programmatically queries the maximum category index label per categorical summary series.
 ```
 import matplotlib.pyplot as plt
 
